@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "313084150225",
+    "project_id": "novel-f7bb1",
+    "storage_bucket": "novel-f7bb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313084150225:android:9334c5db2be3fc5a35e0f0",
+        "android_client_info": {
+          "package_name": "dev.sarthak.novel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313084150225-u1e8mi34plj5dgi73qi27q4jjfif8pib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0W0T2Z4O62UzxYQXNVYQ0KzvQNQNs0HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313084150225-7ab70nbnhm5150kvmnpjnt64hourpgfu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
