@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:novel/pages/splash_screen.dart';
+import '../pages/splash_screen.dart';
 import '../components/novel_settings_tile.dart';
 import '../components/settings_panel.dart';
 import '../components/snackbar.dart';

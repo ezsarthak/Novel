@@ -11,7 +11,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class LoadWidget {
   static Future<List<String>> getwidgets(BuildContext context) async {
-    Directory tempDir = await getTemporaryDirectory();
+    Directory tempDir = await getApplicationCacheDirectory();
     String tempPath = tempDir.path;
     List<String> listaAssetsFiltered = [];
     List<String> all = [];

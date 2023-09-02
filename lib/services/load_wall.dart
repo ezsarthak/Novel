@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../setup/app_config.dart';
 import '../models/wall_model.dart';
 
 class WallApi {
   static Future<List<WallModel>> getPhotos() async {
-    const wallUrl =
-        'https://raw.githubusercontent.com/SarthakDesigns/walls/main/main.json';
+    const wallUrl = wallLink;
     final response = await http.get(Uri.parse(wallUrl));
     // debugPrint("URL: ${Uri.encodeFull(wallUrl)}");
 

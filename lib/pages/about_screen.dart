@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novel/components/about_tile.dart';
+import '../components/about_tile.dart';
 import '../components/novel_text.dart';
 import '../setup/app_details.dart';
 

@@ -1,12 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:novel/setup/app_details.dart';
+import '../setup/app_details.dart';
+import 'package:provider/provider.dart';
 import '../components/novel_text.dart';
 import '../pages/other_apps_screen.dart';
 import '../pages/settings_screen.dart';
 import '../pages/wallpapers_screen.dart';
 import '../pages/widgets_screen.dart';
+import '../utils/novel_provider.dart';
+import 'splash_screen.dart';
 
 class NavBarScreen extends StatelessWidget {
   final AsyncSnapshot<List<String>> snapshot;
@@ -38,6 +41,7 @@ class NavBarScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
@@ -58,10 +62,15 @@ class NavBarScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      CircleAvatar(
-                        radius: 24,
-                        foregroundImage: NetworkImage(
-                            FirebaseAuth.instance.currentUser!.photoURL!),
+                      GestureDetector(
+                        onTap: () {
+                          logoutDialog(context);
+                        },
+                        child: CircleAvatar(
+                          radius: 24,
+                          foregroundImage: NetworkImage(
+                              FirebaseAuth.instance.currentUser!.photoURL!),
+                        ),
                       ),
                     ],
                   ),
@@ -187,5 +196,90 @@ class NavBarScreen extends StatelessWidget {
             ),
           ),
         ));
+  }
+
+  void logoutDialog(BuildContext context) {
+    var dialog = AlertDialog(
+      backgroundColor: Theme.of(context).cardColor,
+      title: CustomText(
+        textName: "Logout",
+        fontSize: 20,
+        textColor: Theme.of(context).textTheme.labelLarge!.color,
+        fontWeight: FontWeight.bold,
+      ),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(25.0),
+        ),
+      ),
+      content: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.17,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomText(
+                fontWeight: FontWeight.w600,
+                maxLines: 10,
+                lineHeight: 1.6,
+                textColor: Theme.of(context).textTheme.labelMedium!.color,
+                textName: "Do You Want To Log Out ?"),
+            Padding(
+              padding: const EdgeInsets.only(top: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      final provider =
+                          Provider.of<MyAppProvider>(context, listen: false);
+                      provider.logOut();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SplashScreen()));
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).textTheme.titleMedium!.color,
+                          borderRadius: BorderRadius.circular(12)),
+                      alignment: Alignment.center,
+                      child: CustomText(
+                        textName: "LogOut",
+                        textColor:
+                            Theme.of(context).textTheme.titleLarge!.color,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 100,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).textTheme.titleMedium!.color,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: CustomText(
+                        textName: "Cancel",
+                        textColor:
+                            Theme.of(context).textTheme.titleLarge!.color,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    showDialog(context: context, builder: (BuildContext context) => dialog);
   }
 }
