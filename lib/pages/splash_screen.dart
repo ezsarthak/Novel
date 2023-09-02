@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../components/loading_widget.dart';
 import '../components/novel_text.dart';
-import '../pages/home_screen.dart';
+import 'navigatin_screen.dart';
 import '../pages/login_screen.dart';
 import '../services/load_widgets.dart';
 
@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
               builder: (context, snapshot) {
                 if (snapshot.hasData &&
                     snapshot.connectionState == ConnectionState.done) {
-                  return NavBarScreen(
+                  return NavigationScreen(
                     snapshot: snapshot,
                   );
                 } else {

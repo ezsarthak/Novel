@@ -22,15 +22,20 @@ class _WidgetScreenState extends State<WidgetScreen> {
     final providerChange = Provider.of<MyAppProvider>(context);
     List<String> img = [];
     List<String> json = [];
-    widget.snapshot.data!.forEach((element) {
-      if (element.endsWith('.jpg')) {
-        img.add(element);
-      }
-      if (element.endsWith('.json')) {
-        json.add(element);
-        print(json);
-      }
-    });
+
+    Future<List<String>> getList() async {
+      widget.snapshot.data!.forEach((element) {
+        if (element.endsWith('.jpg')) {
+          img.add(element);
+        }
+        if (element.endsWith('.json')) {
+          json.add(element);
+          print(json);
+        }
+      });
+      return img;
+    }
+
     return Container(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
@@ -51,6 +56,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
             scrollDirection: Axis.vertical,
             physics: const BouncingScrollPhysics(),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
@@ -60,7 +66,6 @@ class _WidgetScreenState extends State<WidgetScreen> {
                     top: 28,
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
@@ -111,32 +116,45 @@ class _WidgetScreenState extends State<WidgetScreen> {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    right: 44,
-                    left: 44,
-                  ),
-                  child: StaggeredGridView.countBuilder(
-                      itemCount: img.length,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      physics: const BouncingScrollPhysics(),
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                      addRepaintBoundaries: true,
-                      staggeredTileBuilder: (index) => StaggeredTile.count(
-                          providerChange.axis,
-                          providerChange.mainaxis.toDouble()),
-                      crossAxisCount: 4,
-                      itemBuilder: (context, index) {
-                        return Entry.all(
-                          delay: const Duration(milliseconds: 20),
-                          child: WidgetCard(
-                            imagepath: img.elementAt(index),
-                            jsonpath: json.elementAt(index),
-                          ),
-                        );
-                      }),
-                ),
+                    padding: const EdgeInsets.only(
+                      right: 44,
+                      left: 44,
+                    ),
+                    child: Center(
+                      child: FutureBuilder<List<String>>(
+                        future: getList().whenComplete(() =>
+                            Future.delayed(const Duration(milliseconds: 50))),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return StaggeredGridView.countBuilder(
+                                itemCount: img.length,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                physics: const BouncingScrollPhysics(),
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
+                                addRepaintBoundaries: true,
+                                staggeredTileBuilder: (index) =>
+                                    StaggeredTile.count(providerChange.axis,
+                                        providerChange.mainaxis.toDouble()),
+                                crossAxisCount: 4,
+                                itemBuilder: (context, index) {
+                                  return Entry.all(
+                                    delay: const Duration(milliseconds: 20),
+                                    child: WidgetCard(
+                                      imagepath: img.elementAt(index),
+                                      jsonpath: json.elementAt(index),
+                                    ),
+                                  );
+                                });
+                          } else {
+                            return CircularProgressIndicator(
+                              color: Theme.of(context).indicatorColor,
+                            );
+                          }
+                        },
+                      ),
+                    )),
               ],
             ),
           ),

@@ -39,7 +39,7 @@ class _WidgetCardState extends State<WidgetCard> {
             onTap: () {
               Navigator.push(
                   context,
-                  CupertinoPageRoute(
+                  MaterialPageRoute(
                       builder: ((context) => WidgetDetails(
                             snapshot: snapshot,
                             imagepath: widget.imagepath,

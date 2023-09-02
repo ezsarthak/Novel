@@ -195,7 +195,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             subtitle: 'via Twitter, Telegram',
                             onTap: () => Navigator.push(
                                 context,
-                                CupertinoPageRoute(
+                                MaterialPageRoute(
                                     builder: ((context) =>
                                         const AboutScreen()))),
                             trailing: CustomButton(

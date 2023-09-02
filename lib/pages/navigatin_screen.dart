@@ -11,9 +11,9 @@ import '../pages/widgets_screen.dart';
 import '../utils/novel_provider.dart';
 import 'splash_screen.dart';
 
-class NavBarScreen extends StatelessWidget {
+class NavigationScreen extends StatelessWidget {
   final AsyncSnapshot<List<String>> snapshot;
-  const NavBarScreen({Key? key, required this.snapshot}) : super(key: key);
+  const NavigationScreen({Key? key, required this.snapshot}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,7 @@ class NavBarScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
-                          CupertinoPageRoute(
+                          MaterialPageRoute(
                               builder: (context) => WidgetScreen(
                                     snapshot: snapshot,
                                   )));
@@ -120,7 +120,7 @@ class NavBarScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                               context,
-                              CupertinoPageRoute(
+                              MaterialPageRoute(
                                   builder: (context) => Wallpapers(
                                         snapshot: snapshot,
                                       )));
@@ -145,7 +145,7 @@ class NavBarScreen extends StatelessWidget {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  CupertinoPageRoute(
+                                  MaterialPageRoute(
                                       builder: (context) => OtherApps(
                                             snapshot: snapshot,
                                           )));
@@ -170,7 +170,7 @@ class NavBarScreen extends StatelessWidget {
                             onTap: () {
                               Navigator.push(
                                   context,
-                                  CupertinoPageRoute(
+                                  MaterialPageRoute(
                                       builder: (context) =>
                                           const SettingsScreen()));
                             },
