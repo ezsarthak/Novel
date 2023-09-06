@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: deprecated_member_use, use_build_context_synchronously, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:iconsax/iconsax.dart';
@@ -141,7 +142,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 onPressed: () {
                                   setState(() {
                                     providerChange.widgetbg = false;
-                                    print(providerChange.bg);
                                   });
 
                                   // themeChange.darkTheme = false;
@@ -170,7 +170,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 onPressed: () {
                                   setState(() {
                                     providerChange.widgetbg = true;
-                                    print(providerChange.bg);
                                   });
                                 },
                                 buttonContent: CustomText(

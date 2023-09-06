@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/widget_info_model.dart';
 import '../pages/widget_detail_screen.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import '../setup/app_details.dart';
 import '../components/novel_text.dart';

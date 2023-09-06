@@ -50,18 +50,3 @@ flutter:
   assets:
     - assets/
     - assets/app elements/
-
-
-  fonts:
-    - family: MyCustomFont
-      fonts:
-        - asset: fonts/Gilroy-Bold.ttf
-          weight: 800
-        - asset: fonts/Gilroy-ExtraBold.ttf
-          weight: 900
-        - asset: fonts/Gilroy-Medium.ttf
-          weight: 200
-        - asset: fonts/Gilroy-Regular.ttf
-          weight: 100
-        - asset: fonts/Gilroy-SemiBold.ttf
-          weight: 700

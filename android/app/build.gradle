@@ -52,7 +52,7 @@ android {
     defaultConfig {
         applicationId "dev.sarthak.novel"
         minSdkVersion 23
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

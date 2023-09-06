@@ -1,5 +1,6 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../setup/app_details.dart';
 import 'package:provider/provider.dart';
@@ -121,9 +122,7 @@ class NavigationScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Wallpapers(
-                                        snapshot: snapshot,
-                                      )));
+                                  builder: (context) => const Wallpapers()));
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.31,

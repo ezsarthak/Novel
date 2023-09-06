@@ -5,7 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'shared_preferences.dart';
 
 class MyAppProvider with ChangeNotifier {
-  UserSimplePrefs NovelPreference = UserSimplePrefs();
+  UserSimplePrefs novelPreference = UserSimplePrefs();
 
   bool _darkTheme = false;
   bool _bg = false;
@@ -19,25 +19,25 @@ class MyAppProvider with ChangeNotifier {
 
   set darkTheme(bool value) {
     _darkTheme = value;
-    NovelPreference.setDarkTheme(value);
+    novelPreference.setDarkTheme(value);
     notifyListeners();
   }
 
   set axisCount(int value) {
     _axis = value;
-    NovelPreference.setaxis(value);
+    novelPreference.setaxis(value);
     notifyListeners();
   }
 
   set mainaxisCount(int value) {
     _mainaxis = value;
-    NovelPreference.setmainaxis(value);
+    novelPreference.setmainaxis(value);
     notifyListeners();
   }
 
   set widgetbg(bool value) {
     _bg = value;
-    NovelPreference.setbg(value);
+    novelPreference.setbg(value);
     notifyListeners();
   }
 

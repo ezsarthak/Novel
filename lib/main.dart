@@ -38,8 +38,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void getCurrentAppTheme() async {
-    myAppProvider.darkTheme =
-        await myAppProvider.NovelPreference.getTheme();
+    myAppProvider.darkTheme = await myAppProvider.novelPreference.getTheme();
   }
 
   // This widget is the root of your application.

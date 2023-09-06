@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -8,8 +10,9 @@ import '../models/wall_model.dart';
 import '../services/load_wall.dart';
 
 class Wallpapers extends StatefulWidget {
-  final AsyncSnapshot<List<String>> snapshot;
-  const Wallpapers({Key? key, required this.snapshot}) : super(key: key);
+  const Wallpapers({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<Wallpapers> createState() => _WallpapersState();
