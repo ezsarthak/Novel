@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:novel/constants/dimensions.dart';
 import '../setup/app_details.dart';
 import 'package:provider/provider.dart';
@@ -211,11 +212,12 @@ class NavigationScreen extends StatelessWidget {
   void logoutDialog(BuildContext context) {
     var dialog = AlertDialog(
       backgroundColor: Theme.of(context).cardColor,
-      title: CustomText(
-        textName: "Logout",
-        fontSize: 20,
-        textColor: Theme.of(context).textTheme.labelLarge!.color,
-        fontWeight: FontWeight.bold,
+      title: Center(
+        child: Icon(
+          Iconsax.warning_2,
+          size: 52,
+          color: Theme.of(context).indicatorColor,
+        ),
       ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -223,47 +225,23 @@ class NavigationScreen extends StatelessWidget {
         ),
       ),
       content: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.17,
+        height: MediaQuery.of(context).size.height * 0.12,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomText(
-                fontWeight: FontWeight.w600,
-                maxLines: 10,
-                lineHeight: 1.6,
+                fontWeight: FontWeight.w800,
+                maxLines: 1,
+                fontSize: 12,
+                letterSpacing: 0.8,
                 textColor: Theme.of(context).textTheme.labelMedium!.color,
-                textName: "Do You Want To Log Out ?"),
+                textName: "Are You Sure Want To Log Out ?"),
             Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      final provider =
-                          Provider.of<MyAppProvider>(context, listen: false);
-                      provider.logOut();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SplashScreen()));
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).textTheme.titleMedium!.color,
-                          borderRadius: BorderRadius.circular(12)),
-                      alignment: Alignment.center,
-                      child: CustomText(
-                        textName: "LogOut",
-                        textColor:
-                            Theme.of(context).textTheme.titleLarge!.color,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
@@ -279,6 +257,30 @@ class NavigationScreen extends StatelessWidget {
                         textName: "Cancel",
                         textColor:
                             Theme.of(context).textTheme.titleLarge!.color,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      final provider =
+                          Provider.of<MyAppProvider>(context, listen: false);
+                      provider.logOut();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SplashScreen()));
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).indicatorColor,
+                          borderRadius: BorderRadius.circular(12)),
+                      alignment: Alignment.center,
+                      child: CustomText(
+                        textName: "Yes",
+                        textColor: Theme.of(context).cardColor,
                         fontSize: 12,
                       ),
                     ),
