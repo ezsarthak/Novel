@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:novel/constants/dimensions.dart';
 import '../setup/app_details.dart';
 import 'package:provider/provider.dart';
 import '../components/novel_text.dart';
@@ -46,20 +47,30 @@ class NavigationScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
                             textName: appName,
-                            fontSize: 32,
+                            fontSize: 28,
                             textColor:
                                 Theme.of(context).textTheme.labelLarge!.color,
                             fontWeight: FontWeight.bold,
                           ),
-                          CustomText(
-                            textName: "Featured",
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
-                            textColor:
-                                Theme.of(context).textTheme.labelLarge!.color,
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.63,
+                            child: CustomText(
+                              textName: appDescription,
+                              textOverflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              fontWeight: FontWeight.w200,
+                              fontSize: 10,
+                              textColor:
+                                  Theme.of(context).textTheme.labelLarge!.color,
+                            ),
                           ),
                         ],
                       ),
@@ -107,7 +118,7 @@ class NavigationScreen extends StatelessWidget {
                   CustomText(
                     textName: "More",
                     fontWeight: FontWeight.w500,
-                    fontSize: 24,
+                    fontSize: Dimensions.smallText,
                     letterSpacing: 2,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                   ),

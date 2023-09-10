@@ -84,9 +84,9 @@ class WidgetDetails extends StatelessWidget {
                   CustomText(
                     textName:
                         snapshot.data!.elementAt(0).title ?? "unavailable",
-                    fontSize: 32,
+                    fontSize: Dimensions.appBarTitle,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.bold,
                   ),
                   const SizedBox(
                     height: 12,
@@ -97,8 +97,8 @@ class WidgetDetails extends StatelessWidget {
                             "unavailable",
                     textOverflow: TextOverflow.ellipsis,
                     softWrap: true,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 24,
+                    fontWeight: FontWeight.w200,
+                    fontSize: Dimensions.appBarSubTitle,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                   ),
                   const SizedBox(

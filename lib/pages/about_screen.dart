@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:novel/constants/dimensions.dart';
 import '../components/about_tile.dart';
 import '../components/novel_text.dart';
 import '../setup/app_details.dart';
@@ -39,7 +40,7 @@ class AboutScreen extends StatelessWidget {
                   children: [
                     CustomText(
                       textName: 'About',
-                      fontSize: 32,
+                      fontSize: Dimensions.appBarTitle,
                       textColor: Theme.of(context).textTheme.labelLarge!.color,
                       fontWeight: FontWeight.bold,
                     ),
@@ -47,9 +48,9 @@ class AboutScreen extends StatelessWidget {
                       height: 12,
                     ),
                     CustomText(
-                      textName: "Know More",
-                      fontWeight: FontWeight.w500,
-                      fontSize: 24,
+                      textName: "Know More About US",
+                      fontWeight: FontWeight.w200,
+                      fontSize: Dimensions.appBarSubTitle,
                       textColor: Theme.of(context).textTheme.labelLarge!.color,
                     ),
                   ],

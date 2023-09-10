@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:novel/constants/dimensions.dart';
 import 'package:novel/models/apps_model.dart';
 import 'package:novel/services/load_apps.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -62,7 +63,7 @@ class _OtherAppsState extends State<OtherApps> {
                       children: [
                         CustomText(
                           textName: "More Apps",
-                          fontSize: 32,
+                          fontSize: Dimensions.appBarTitle,
                           textColor:
                               Theme.of(context).textTheme.labelLarge!.color,
                           fontWeight: FontWeight.bold,
@@ -71,9 +72,9 @@ class _OtherAppsState extends State<OtherApps> {
                           height: 12,
                         ),
                         CustomText(
-                          textName: "Featured",
-                          fontWeight: FontWeight.w300,
-                          fontSize: 24,
+                          textName: "Check Out Other Apps ",
+                          fontWeight: FontWeight.w200,
+                          fontSize: Dimensions.appBarSubTitle,
                           textColor:
                               Theme.of(context).textTheme.labelLarge!.color,
                         ),

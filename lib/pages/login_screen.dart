@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:novel/constants/dimensions.dart';
 import '../setup/app_details.dart';
 import '../components/novel_text.dart';
 import '../utils/novel_provider.dart';
@@ -46,8 +47,8 @@ class _LogInState extends State<LogIn> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
-                      textName: "Welcome !",
-                      fontSize: 32,
+                      textName: "Welcome !!",
+                      fontSize: Dimensions.appBarTitle,
                       letterSpacing: 4,
                       textColor: Theme.of(context).textTheme.labelLarge!.color,
                       fontWeight: FontWeight.bold,
@@ -56,10 +57,10 @@ class _LogInState extends State<LogIn> {
                       height: 12,
                     ),
                     CustomText(
-                      textName: "Sign in to start",
-                      fontWeight: FontWeight.w500,
+                      textName: "Sign in to start app",
+                      fontWeight: FontWeight.w200,
                       letterSpacing: 1,
-                      fontSize: 24,
+                      fontSize: Dimensions.appBarSubTitle,
                       textColor: Theme.of(context).textTheme.labelLarge!.color,
                     ),
                   ],
@@ -76,7 +77,10 @@ class _LogInState extends State<LogIn> {
                       height: MediaQuery.of(context).size.width * 0.4,
                       width: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
-                        color: Colors.red,
+                        image: const DecorationImage(
+                            fit: BoxFit.contain,
+                            image:
+                                AssetImage("assets/app elements/app_logo.jpg")),
                         borderRadius: BorderRadius.circular(32),
                       ),
                     ),

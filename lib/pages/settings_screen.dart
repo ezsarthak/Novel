@@ -54,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   CustomText(
                     textName: "Settings",
-                    fontSize: 32,
+                    fontSize: Dimensions.appBarTitle,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                     fontWeight: FontWeight.bold,
                   ),
@@ -62,9 +62,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     height: 12,
                   ),
                   CustomText(
-                    textName: "Change Preferences",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20,
+                    textName: "Change Preferences of App",
+                    fontWeight: FontWeight.w200,
+                    fontSize: Dimensions.appBarSubTitle,
                     maxLines: 1,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                   ),

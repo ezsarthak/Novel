@@ -7,6 +7,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import '../components/novel_text.dart';
 import '../components/widget_card.dart';
+import '../constants/dimensions.dart';
 import '../utils/novel_provider.dart';
 
 class WidgetScreen extends StatefulWidget {
@@ -72,7 +73,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
                     children: [
                       CustomText(
                         textName: "KWGT Widgets",
-                        fontSize: 30,
+                        fontSize: Dimensions.appBarTitle,
                         textColor:
                             Theme.of(context).textTheme.labelLarge!.color,
                         fontWeight: FontWeight.bold,
@@ -85,9 +86,9 @@ class _WidgetScreenState extends State<WidgetScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            textName: "Featured",
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
+                            textName: "Explore Featured Widgets",
+                            fontWeight: FontWeight.w200,
+                            fontSize: Dimensions.appBarSubTitle,
                             textColor:
                                 Theme.of(context).textTheme.labelLarge!.color,
                           ),

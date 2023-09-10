@@ -3,6 +3,7 @@
 import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:novel/constants/dimensions.dart';
 import '../components/loading_widget.dart';
 import '../components/novel_text.dart';
 import '../components/wall_card.dart';
@@ -50,7 +51,7 @@ class _WallpapersState extends State<Wallpapers> {
                 const EdgeInsets.only(right: 44, left: 44, top: 28, bottom: 28),
             child: FutureBuilder<List<WallModel>>(
                 future: wallObject.whenComplete(
-                    () => Future.delayed(const Duration(milliseconds: 700))),
+                    () => Future.delayed(const Duration(milliseconds: 200))),
                 builder: (context, snapshot) {
                   if (snapshot.hasData &&
                       snapshot.connectionState == ConnectionState.done) {
@@ -62,7 +63,7 @@ class _WallpapersState extends State<Wallpapers> {
                         children: [
                           CustomText(
                             textName: "WallPapers",
-                            fontSize: 32,
+                            fontSize: Dimensions.appBarTitle,
                             textColor:
                                 Theme.of(context).textTheme.labelLarge!.color,
                             fontWeight: FontWeight.bold,
@@ -71,9 +72,9 @@ class _WallpapersState extends State<Wallpapers> {
                             height: 12,
                           ),
                           CustomText(
-                            textName: "Featured",
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
+                            textName: "Explore Featured Freebies",
+                            fontWeight: FontWeight.w200,
+                            fontSize: Dimensions.appBarSubTitle,
                             textColor:
                                 Theme.of(context).textTheme.labelLarge!.color,
                           ),

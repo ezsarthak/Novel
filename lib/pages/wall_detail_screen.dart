@@ -73,12 +73,19 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-        tag: widget.currentWall.url!,
-        child: Material(type: MaterialType.transparency, child: buildBody()));
+    String? author = widget.currentWall.auther;
+    if (widget.currentWall.auther == null) {
+      author = "unavailable";
+    }
+    String? cat = widget.currentWall.category;
+    if (widget.currentWall.category == null) {
+      cat = "unavailable";
+    }
+    return Material(
+        type: MaterialType.transparency, child: buildBody(author, cat));
   }
 
-  Widget buildBody() {
+  Widget buildBody(String? author, String? cat) {
     var accentC =
         domiColor.computeLuminance() > 0.5 ? Colors.black : Colors.white;
     var primaryC =
@@ -218,10 +225,8 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
                                                   .width *
                                               0.53,
                                           child: CustomText(
-                                            textName: widget
-                                                .currentWall
-                                                .category!
-                                                .capitalizeFirstOfEach,
+                                            textName:
+                                                cat!.capitalizeFirstOfEach,
                                             softWrap: true,
                                             textOverflow: TextOverflow.ellipsis,
                                             maxLines: 1,
@@ -273,8 +278,7 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
                                 InfoTile(
                                     title: "Author",
                                     primaryC: primaryC,
-                                    end: widget.currentWall.auther!
-                                        .capitalizeFirstOfEach),
+                                    end: author!.capitalizeFirstOfEach),
                                 InfoTile(
                                     title: "Dimensions",
                                     primaryC: primaryC,

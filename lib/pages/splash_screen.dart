@@ -73,36 +73,56 @@ class _SplashScreenState extends State<SplashScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(bottom: 24.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Center(
-                                  child: CustomText(
-                                    textName: 'App Starting',
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 2,
-                                    fontSize: 12,
-                                    textColor: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .color!
-                                        .withOpacity(0.6),
-                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Center(
+                                      child: CustomText(
+                                        textName: 'App Starting',
+                                        fontWeight: FontWeight.normal,
+                                        letterSpacing: 2,
+                                        fontSize: 12,
+                                        textColor: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge!
+                                            .color!
+                                            .withOpacity(0.6),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 16,
+                                    ),
+                                    Center(
+                                      child: SpinKitWave(
+                                        size:
+                                            MediaQuery.of(context).size.width *
+                                                0.1,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge!
+                                            .color!
+                                            .withOpacity(0.6),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 const SizedBox(
-                                  width: 16,
+                                  height: 28,
                                 ),
-                                Center(
-                                  child: SpinKitWave(
-                                    size:
-                                        MediaQuery.of(context).size.width * 0.1,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .color!
-                                        .withOpacity(0.6),
-                                  ),
+                                CustomText(
+                                  textName: 'Powerd by Novel Dashboard',
+                                  fontWeight: FontWeight.normal,
+                                  letterSpacing: 2,
+                                  fontSize: 12,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge!
+                                      .color!
+                                      .withOpacity(0.6),
                                 ),
                               ],
                             ),
