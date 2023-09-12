@@ -70,12 +70,7 @@ class WidgetDetails extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(
-              top: 28,
-              bottom: 28,
-              right: 44,
-              left: 44,
-            ),
+            padding: Dimensions.pagePadding,
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(

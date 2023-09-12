@@ -37,8 +37,7 @@ class NavigationScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(
-                  right: 44, left: 44, top: 28, bottom: 28),
+              padding: Dimensions.pagePadding,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,10 +100,10 @@ class NavigationScreen extends StatelessWidget {
                                   )));
                     },
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.43,
+                      height: MediaQuery.of(context).size.height * 0.3,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: Colors.transparent,
                           borderRadius: BorderRadius.circular(32),
                           image: const DecorationImage(
                             fit: BoxFit.fill,
@@ -118,11 +117,12 @@ class NavigationScreen extends StatelessWidget {
                   // ),
                   CustomText(
                     textName: "More",
-                    fontWeight: FontWeight.w500,
-                    fontSize: Dimensions.smallText,
-                    letterSpacing: 2,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 28,
+                    letterSpacing: 4,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                   ),
+
                   // const SizedBox(
                   //   height: 12,
                   // ),
@@ -137,8 +137,8 @@ class NavigationScreen extends StatelessWidget {
                                   builder: (context) => const Wallpapers()));
                         },
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.31,
-                          width: MediaQuery.of(context).size.width * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.35,
+                          width: MediaQuery.of(context).size.width * 0.42,
                           decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.circular(28),
@@ -162,8 +162,8 @@ class NavigationScreen extends StatelessWidget {
                                           )));
                             },
                             child: Container(
-                              height: MediaQuery.of(context).size.height * 0.18,
-                              width: MediaQuery.of(context).size.width * 0.33,
+                              height: MediaQuery.of(context).size.height * 0.16,
+                              width: MediaQuery.of(context).size.width * 0.35,
                               decoration: BoxDecoration(
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(28),
@@ -186,8 +186,8 @@ class NavigationScreen extends StatelessWidget {
                                           const SettingsScreen()));
                             },
                             child: Container(
-                              height: MediaQuery.of(context).size.height * 0.1,
-                              width: MediaQuery.of(context).size.width * 0.33,
+                              height: MediaQuery.of(context).size.height * 0.16,
+                              width: MediaQuery.of(context).size.width * 0.35,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(28),
                                   color: Colors.red,
@@ -201,7 +201,10 @@ class NavigationScreen extends StatelessWidget {
                         ],
                       )
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 6,
+                  ),
                 ],
               ),
             ),

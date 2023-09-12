@@ -28,8 +28,7 @@ class AboutScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Padding(
-            padding:
-                const EdgeInsets.only(right: 44, left: 44, top: 28, bottom: 28),
+            padding: Dimensions.pagePadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,6 +97,13 @@ class AboutScreen extends StatelessWidget {
                     handle: "Instagram",
                     handleUrl: "https://www.instagram.com/kpv.piyush",
                     profile: "https://i.imgur.com/qacy6VQ.png"),
+                const AboutTile(
+                    title: "Purvesh Shinde",
+                    subTitle: "Deals & Distribution",
+                    handle: "Twitter",
+                    handleUrl: "https://twitter.com/DroidDecor",
+                    profile:
+                        "https://pbs.twimg.com/profile_images/1621021404467716097/_PbHoEMp_400x400.jpg"),
               ],
             ),
           ),

@@ -37,11 +37,7 @@ class _LogInState extends State<LogIn> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(
-                  right: 44,
-                  left: 44,
-                  top: 28,
-                ),
+                padding: Dimensions.pagePadding,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,

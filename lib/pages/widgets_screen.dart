@@ -55,110 +55,105 @@ class _WidgetScreenState extends State<WidgetScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: 44,
-                    left: 44,
-                    top: 28,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+          child: Padding(
+            padding: Dimensions.pagePadding,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CustomText(
-                        textName: "KWGT Widgets",
-                        fontSize: Dimensions.appBarTitle,
-                        textColor:
-                            Theme.of(context).textTheme.labelLarge!.color,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            textName: "Explore Featured Widgets",
-                            fontWeight: FontWeight.w200,
-                            fontSize: Dimensions.appBarSubTitle,
+                            textName: "Widgets",
+                            fontSize: Dimensions.appBarTitle,
                             textColor:
                                 Theme.of(context).textTheme.labelLarge!.color,
+                            fontWeight: FontWeight.bold,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (providerChange.axis == 4) {
-                                  providerChange.axisCount = 2;
-                                  providerChange.mainaxisCount = 3;
-                                } else {
-                                  providerChange.axisCount = 4;
-                                  providerChange.mainaxisCount = 4;
-                                }
-                              });
-                            },
-                            child: Icon(
-                              Iconsax.candle,
-                              size: 32,
-                              color: Theme.of(context).indicatorColor,
+                          const SizedBox(
+                            height: 6,
+                          ),
+                          Center(
+                            child: CustomText(
+                              textName: "Explore Featured Widgets",
+                              fontWeight: FontWeight.w200,
+                              fontSize: Dimensions.appBarSubTitle,
+                              textColor:
+                                  Theme.of(context).textTheme.labelLarge!.color,
                             ),
                           ),
                         ],
                       ),
+                      Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (providerChange.axis == 4) {
+                                providerChange.axisCount = 2;
+                                providerChange.mainaxisCount = 3;
+                              } else {
+                                providerChange.axisCount = 4;
+                                providerChange.mainaxisCount = 4;
+                              }
+                            });
+                          },
+                          child: Icon(
+                            Iconsax.setting_5,
+                            size: 24,
+                            color:
+                                Theme.of(context).primaryColor.withOpacity(0.7),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(
-                      right: 44,
-                      left: 44,
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  Center(
+                    child: FutureBuilder<List<String>>(
+                      future: getList().whenComplete(() =>
+                          Future.delayed(const Duration(milliseconds: 50))),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return StaggeredGridView.countBuilder(
+                              itemCount: img.length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              physics: const BouncingScrollPhysics(),
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 20,
+                              addRepaintBoundaries: true,
+                              staggeredTileBuilder: (index) =>
+                                  StaggeredTile.count(providerChange.axis,
+                                      providerChange.mainaxis.toDouble()),
+                              crossAxisCount: 4,
+                              itemBuilder: (context, index) {
+                                return Entry.all(
+                                  delay: const Duration(milliseconds: 20),
+                                  child: WidgetCard(
+                                    imagepath: img.elementAt(index),
+                                    jsonpath: json.elementAt(index),
+                                  ),
+                                );
+                              });
+                        } else {
+                          return CircularProgressIndicator(
+                            color: Theme.of(context).indicatorColor,
+                          );
+                        }
+                      },
                     ),
-                    child: Center(
-                      child: FutureBuilder<List<String>>(
-                        future: getList().whenComplete(() =>
-                            Future.delayed(const Duration(milliseconds: 50))),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            return StaggeredGridView.countBuilder(
-                                itemCount: img.length,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                physics: const BouncingScrollPhysics(),
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                addRepaintBoundaries: true,
-                                staggeredTileBuilder: (index) =>
-                                    StaggeredTile.count(providerChange.axis,
-                                        providerChange.mainaxis.toDouble()),
-                                crossAxisCount: 4,
-                                itemBuilder: (context, index) {
-                                  return Entry.all(
-                                    delay: const Duration(milliseconds: 20),
-                                    child: WidgetCard(
-                                      imagepath: img.elementAt(index),
-                                      jsonpath: json.elementAt(index),
-                                    ),
-                                  );
-                                });
-                          } else {
-                            return CircularProgressIndicator(
-                              color: Theme.of(context).indicatorColor,
-                            );
-                          }
-                        },
-                      ),
-                    )),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

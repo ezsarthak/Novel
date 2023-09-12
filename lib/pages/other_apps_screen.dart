@@ -47,8 +47,7 @@ class _OtherAppsState extends State<OtherApps> {
         backgroundColor: Colors.transparent,
         body: SafeArea(
             child: Padding(
-          padding:
-              const EdgeInsets.only(right: 44, left: 44, top: 28, bottom: 28),
+          padding: Dimensions.pagePadding,
           child: FutureBuilder<List<AppsModel>>(
               future: wallObject.whenComplete(
                   () => Future.delayed(const Duration(milliseconds: 700))),
@@ -79,7 +78,7 @@ class _OtherAppsState extends State<OtherApps> {
                               Theme.of(context).textTheme.labelLarge!.color,
                         ),
                         const SizedBox(
-                          height: 12,
+                          height: 24,
                         ),
                         StaggeredGridView.countBuilder(
                             itemCount: snapshot.data!.length,
@@ -90,7 +89,7 @@ class _OtherAppsState extends State<OtherApps> {
                             mainAxisSpacing: 20,
                             addRepaintBoundaries: true,
                             staggeredTileBuilder: (index) =>
-                                const StaggeredTile.count(4, 3),
+                                const StaggeredTile.count(4, 2.5),
                             crossAxisCount: 4,
                             itemBuilder: (context, index) {
                               return Entry.all(
@@ -99,83 +98,44 @@ class _OtherAppsState extends State<OtherApps> {
                                   onTap: () async {
                                     final url =
                                         snapshot.data!.elementAt(index).link;
-                                    if (await canLaunch(url)) {
+                                    if (await canLaunch(url!)) {
                                       await launch(url);
                                     }
                                   },
-                                  child: Stack(
-                                    alignment: Alignment.bottomCenter,
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                          top: 12,
-                                        ),
-                                        decoration: BoxDecoration(
-                                            color: Theme.of(context)
-                                                .textTheme
-                                                .labelLarge!
-                                                .color!
-                                                .withOpacity(0.12),
-                                            borderRadius:
-                                                BorderRadius.circular(18)),
-                                        alignment: Alignment.topCenter,
-                                        child: CustomText(
-                                          textName: snapshot.data!
-                                              .elementAt(index)
-                                              .name,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 20,
-                                          letterSpacing: 3,
-                                          textColor: Theme.of(context)
+                                  child: CachedNetworkImage(
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                      child: SizedBox(
+                                        height: 50,
+                                        width: 50,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 5,
+                                          value: progress.progress,
+                                          color: Theme.of(context)
                                               .textTheme
                                               .labelLarge!
                                               .color,
                                         ),
                                       ),
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.2,
-                                        child: CachedNetworkImage(
-                                          progressIndicatorBuilder:
-                                              (context, url, progress) =>
-                                                  Center(
-                                            child: SizedBox(
-                                              height: 50,
-                                              width: 50,
-                                              child: CircularProgressIndicator(
-                                                strokeWidth: 5,
-                                                value: progress.progress,
-                                                color: Theme.of(context)
-                                                    .textTheme
-                                                    .labelLarge!
-                                                    .color,
-                                              ),
-                                            ),
+                                    ),
+                                    errorWidget: (context, url, error) =>
+                                        const Center(child: Icon(Icons.error)),
+                                    imageUrl:
+                                        snapshot.data!.elementAt(index).banner!,
+                                    imageBuilder: (context, imageProvider) {
+                                      return Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 6),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(18),
+                                          image: DecorationImage(
+                                            image: imageProvider,
+                                            fit: BoxFit.fill,
                                           ),
-                                          errorWidget: (context, url, error) =>
-                                              const Center(
-                                                  child: Icon(Icons.error)),
-                                          imageUrl: snapshot.data!
-                                              .elementAt(index)
-                                              .banner,
-                                          imageBuilder:
-                                              (context, imageProvider) {
-                                            return Container(
-                                              alignment: Alignment.bottomCenter,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(18),
-                                                image: DecorationImage(
-                                                  image: imageProvider,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                            );
-                                          },
                                         ),
-                                      ),
-                                    ],
+                                      );
+                                    },
                                   ),
                                 ),
                               );

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:novel/setup/app_details.dart';
 import '../pages/splash_screen.dart';
 import '../components/novel_settings_tile.dart';
 import '../components/settings_panel.dart';
@@ -49,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 44, left: 44, top: 28),
+                  padding: Dimensions.pagePadding,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -72,7 +73,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Theme.of(context).textTheme.labelLarge!.color,
                       ),
                       const SizedBox(
-                        height: 28,
+                        height: 24,
                       ),
                       ListView(
                         physics: const BouncingScrollPhysics(),
@@ -255,8 +256,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 ),
                               ),
                               onTap: () async {
-                                String uri =
-                                    'https://play.google.com/store/apps/details?id=dev.sarthak.symmetrics&hl=en-US&ah=PulkBdlLgWInFlz21YErqShEXLI';
+                                String uri = appLink;
                                 if (await canLaunch(uri)) {
                                   await launch(uri);
                                 } else {
@@ -283,11 +283,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               ),
                               onTap: () async {
                                 const String subject =
-                                    "Report Bug For Symmectrics";
+                                    "Report Bug For $appName";
                                 const String stringText =
                                     "Enter Details Of Bug Here And Send";
                                 String uri =
-                                    'mailto:thesarthakdesigns@gmail.com?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(stringText)}';
+                                    'mailto:$emailID?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(stringText)}';
                                 if (await canLaunch(uri)) {
                                   await launch(uri);
                                 } else {
@@ -314,11 +314,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               ),
                               onTap: () async {
                                 const String subject =
-                                    "Suggestions For Symmectrics";
+                                    "Suggestions For $appName";
                                 const String stringText =
                                     "Enter Details Of Your Suggestions, Feel Free To Send";
                                 String uri =
-                                    'mailto:thesarthakdesigns@gmail.com?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(stringText)}';
+                                    'mailto:$emailID?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(stringText)}';
                                 if (await canLaunch(uri)) {
                                   await launch(uri);
                                 } else {
@@ -478,10 +478,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Container(
                     height: 50,
-                    width: 70,
+                    width: 140,
                     decoration: BoxDecoration(
                         color: Theme.of(context).textTheme.titleMedium!.color,
-                        borderRadius: BorderRadius.circular(40)),
+                        borderRadius: BorderRadius.circular(16)),
                     child: Center(
                       child: CustomText(
                         textName: "OK",

@@ -47,8 +47,7 @@ class _WallpapersState extends State<Wallpapers> {
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Padding(
-            padding:
-                const EdgeInsets.only(right: 44, left: 44, top: 28, bottom: 28),
+            padding: Dimensions.pagePadding,
             child: FutureBuilder<List<WallModel>>(
                 future: wallObject.whenComplete(
                     () => Future.delayed(const Duration(milliseconds: 200))),

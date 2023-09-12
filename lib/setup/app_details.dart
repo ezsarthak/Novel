@@ -13,4 +13,7 @@ const creditHandle = 'Telegram'; // Your Social Handle Name
 
 const creditHandleUrl = 'https://t.me/im_dope'; // Your Social Handle Link
 
- 
+const appLink =
+    'https://play.google.com/store/apps/details?id=dev.sarthak.symmetrics&hl=en-US&ah=PulkBdlLgWInFlz21YErqShEXLI'; // Play Store Link
+
+const emailID = 'thesarthakdesigns@gmail.com';
