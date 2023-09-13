@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import '../constants/dimensions.dart';
 import 'novel_text.dart';
 
 class CustomSettingsTile extends StatelessWidget {
@@ -23,8 +22,8 @@ class CustomSettingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BorderRadius border =
-        BorderRadius.circular(borderRadius ?? Dimensions.smallCornerRadius);
+    // BorderRadius border =
+    //     BorderRadius.circular(borderRadius ?? Dimensions.smallCornerRadius);
     return Material(
       color: Colors.transparent,
       child: Column(
