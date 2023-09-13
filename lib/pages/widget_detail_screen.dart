@@ -24,28 +24,32 @@ class WidgetDetails extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 16.0),
         child: Row(
           children: [
-            CustomText(
-              textName: title.capitalizeFirstOfEach,
-              fontSize: 24,
-              softWrap: true,
-              maxLines: 1,
-              textOverflow: TextOverflow.ellipsis,
-              fontWeight: FontWeight.w600,
-              textColor: Theme.of(context).textTheme.labelLarge!.color,
+            Center(
+              child: CustomText(
+                textName: title.capitalizeFirstOfEach,
+                fontSize: 20,
+                softWrap: true,
+                maxLines: 1,
+                textOverflow: TextOverflow.ellipsis,
+                fontWeight: FontWeight.w600,
+                textColor: Theme.of(context).textTheme.labelLarge!.color,
+              ),
             ),
             const SizedBox(
               width: 12,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: CustomText(
-                textName: content?.capitalizeFirstOfEach ?? "unavailable",
-                softWrap: true,
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-                textColor: Theme.of(context).textTheme.labelLarge!.color,
-                textOverflow: TextOverflow.ellipsis,
-                maxLines: 2,
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: CustomText(
+                  textName: content?.capitalizeFirstOfEach ?? "unavailable",
+                  softWrap: true,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  textColor: Theme.of(context).textTheme.labelLarge!.color,
+                  textOverflow: TextOverflow.ellipsis,
+                  maxLines: 1000,
+                ),
               ),
             ),
           ],
@@ -129,7 +133,7 @@ class WidgetDetails extends StatelessWidget {
                       snapshot.data!.elementAt(0).version.toString()),
                   CustomText(
                     textName: "Description:",
-                    fontSize: 24,
+                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                   ),
@@ -141,10 +145,10 @@ class WidgetDetails extends StatelessWidget {
                         "unavailable",
                     softWrap: true,
                     textOverflow: TextOverflow.ellipsis,
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
-                    maxLines: 50,
+                    maxLines: 10000,
                   ),
                 ],
               ),
