@@ -118,7 +118,7 @@ class NavigationScreen extends StatelessWidget {
                   CustomText(
                     textName: "More",
                     fontWeight: FontWeight.w600,
-                    fontSize: 28,
+                    fontSize: 16,
                     letterSpacing: 4,
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                   ),

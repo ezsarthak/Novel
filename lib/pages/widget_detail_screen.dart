@@ -23,6 +23,8 @@ class WidgetDetails extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.only(bottom: 16.0),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
               child: CustomText(
