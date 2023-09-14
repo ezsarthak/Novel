@@ -29,82 +29,86 @@ class AboutScreen extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding: Dimensions.pagePadding,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomText(
-                      textName: 'About',
-                      fontSize: Dimensions.appBarTitle,
-                      textColor: Theme.of(context).textTheme.labelLarge!.color,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    CustomText(
-                      textName: "Know More About US",
-                      fontWeight: FontWeight.w200,
-                      fontSize: Dimensions.appBarSubTitle,
-                      textColor: Theme.of(context).textTheme.labelLarge!.color,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 48,
-                ),
-                const AboutTile(
-                  title: creditName,
-                  subTitle: creditDescription,
-                  handle: creditHandle,
-                  profile: creditUrl,
-                  handleUrl: creditHandleUrl,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 2,
-                  width: MediaQuery.of(context).size.width,
-                  color: Theme.of(context).indicatorColor.withOpacity(0.5),
-                ),
-                const SizedBox(
-                  height: 32,
-                ),
-                CustomText(
-                  textName: "Dashboard",
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                  letterSpacing: 3,
-                  textColor: Theme.of(context).textTheme.labelLarge!.color,
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                const AboutTile(
-                    title: "Sarthak Patil",
-                    subTitle: "App Dev And Designer",
-                    handle: "Telegram",
-                    handleUrl: "https://t.me/im_dope",
-                    profile: "https://i.imgur.com/oHQRX2B.jpg"),
-                const AboutTile(
-                    title: "Piyush KPV",
-                    subTitle: "Senior Designer",
-                    handle: "Instagram",
-                    handleUrl: "https://www.instagram.com/kpv.piyush",
-                    profile: "https://i.imgur.com/qacy6VQ.png"),
-                const AboutTile(
-                    title: "Purvesh Shinde",
-                    subTitle: "Deals & Distribution",
-                    handle: "Twitter",
-                    handleUrl: "https://twitter.com/DroidDecor",
-                    profile:
-                        "https://pbs.twimg.com/profile_images/1621021404467716097/_PbHoEMp_400x400.jpg"),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                        textName: 'About',
+                        fontSize: Dimensions.appBarTitle,
+                        textColor:
+                            Theme.of(context).textTheme.labelLarge!.color,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      CustomText(
+                        textName: "Know More About US",
+                        fontWeight: FontWeight.w200,
+                        fontSize: Dimensions.appBarSubTitle,
+                        textColor:
+                            Theme.of(context).textTheme.labelLarge!.color,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 48,
+                  ),
+                  const AboutTile(
+                    title: creditName,
+                    subTitle: creditDescription,
+                    handle: creditHandle,
+                    profile: creditUrl,
+                    handleUrl: creditHandleUrl,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 2,
+                    width: MediaQuery.of(context).size.width,
+                    color: Theme.of(context).indicatorColor.withOpacity(0.5),
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  CustomText(
+                    textName: "Dashboard",
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    letterSpacing: 3,
+                    textColor: Theme.of(context).textTheme.labelLarge!.color,
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const AboutTile(
+                      title: "Sarthak Patil",
+                      subTitle: "App Dev And Designer",
+                      handle: "Telegram",
+                      handleUrl: "https://t.me/im_dope",
+                      profile: "https://i.imgur.com/oHQRX2B.jpg"),
+                  const AboutTile(
+                      title: "Piyush KPV",
+                      subTitle: "Senior Designer",
+                      handle: "Instagram",
+                      handleUrl: "https://www.instagram.com/kpv.piyush",
+                      profile: "https://i.imgur.com/qacy6VQ.png"),
+                  const AboutTile(
+                      title: "Purvesh Shinde",
+                      subTitle: "Deals & Distribution",
+                      handle: "Twitter",
+                      handleUrl: "https://twitter.com/DroidDecor",
+                      profile:
+                          "https://pbs.twimg.com/profile_images/1621021404467716097/_PbHoEMp_400x400.jpg"),
+                ],
+              ),
             ),
           ),
         ),

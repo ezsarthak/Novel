@@ -176,8 +176,7 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
                           height: MediaQuery.of(context).size.width * 0.8,
                           decoration: BoxDecoration(
                             color: accentC,
-                            borderRadius: BorderRadius.circular(
-                                Dimensions.smallCornerRadius),
+                            borderRadius: BorderRadius.circular(16),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
@@ -210,7 +209,7 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
                                             fontSize: MediaQuery.of(context)
                                                     .size
                                                     .height *
-                                                0.035,
+                                                0.03,
                                             textColor: primaryC,
                                             fontWeight: FontWeight.bold,
                                             letterSpacing: 1,
@@ -234,8 +233,8 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
                                             fontSize: MediaQuery.of(context)
                                                     .size
                                                     .height *
-                                                0.025,
-                                            fontWeight: FontWeight.w600,
+                                                0.02,
+                                            fontWeight: FontWeight.w400,
                                             letterSpacing: 1,
                                           ),
                                         ),
@@ -261,15 +260,17 @@ class _WallDetailScreenState extends State<WallDetailScreen> {
                                 ),
                                 CustomButton(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 14),
+                                        horizontal: 16, vertical: 12),
                                     backgroundColor: domiColor,
+                                    borderRadius: 12,
                                     buttonContent: CustomText(
                                       textName: "Info",
                                       textColor:
                                           domiColor.computeLuminance() > 0.5
                                               ? Colors.black
                                               : Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
                                     )),
                                 SizedBox(
                                   height:
