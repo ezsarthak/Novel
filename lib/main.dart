@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:novel/services/notifications.dart';
 import '../constants/novel_theme.dart';
 import '../pages/splash_screen.dart';
 import '../utils/shared_preferences.dart';
@@ -11,6 +12,7 @@ import 'setup/app_details.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await FirebaseApi().initNoti();
   await UserSimplePrefs.init();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
