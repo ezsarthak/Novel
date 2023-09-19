@@ -67,6 +67,7 @@ class _LogInState extends State<LogIn> {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
                     child: Container(
@@ -101,6 +102,7 @@ class _LogInState extends State<LogIn> {
                       textName: appDescription,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 2,
+                      textAlign: TextAlign.center,
                       fontSize: 12,
                       maxLines: 100,
                       textColor: Theme.of(context)
