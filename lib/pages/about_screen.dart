@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:novel/constants/dimensions.dart';
+import '../constants/dimensions.dart';
 import '../components/about_tile.dart';
 import '../components/novel_text.dart';
 import '../setup/app_details.dart';

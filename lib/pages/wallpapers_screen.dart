@@ -3,7 +3,7 @@
 import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:novel/constants/dimensions.dart';
+import '../constants/dimensions.dart';
 import '../components/loading_widget.dart';
 import '../components/novel_text.dart';
 import '../components/wall_card.dart';

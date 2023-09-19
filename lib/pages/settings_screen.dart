@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:novel/setup/app_details.dart';
+import '../setup/app_details.dart';
 import '../pages/splash_screen.dart';
 import '../components/novel_settings_tile.dart';
 import '../components/settings_panel.dart';

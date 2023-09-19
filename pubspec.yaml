@@ -1,7 +1,7 @@
 name: novel
 description: A new Flutter project.
 
-version: 1.0.3+3
+version: 1.0.6+6
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
@@ -34,6 +34,7 @@ dependencies:
   google_sign_in: ^6.1.2
   firebase_core: ^2.13.0
   firebase_messaging: ^14.6.7
+  store_checker: ^1.4.0
 
 
 

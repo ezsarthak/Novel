@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:novel/constants/dimensions.dart';
+import '../constants/dimensions.dart';
 import '../setup/app_details.dart';
 import 'package:provider/provider.dart';
 import '../components/novel_text.dart';
@@ -75,6 +75,7 @@ class NavigationScreen extends StatelessWidget {
                         ],
                       ),
                       GestureDetector(
+                        behavior: HitTestBehavior.translucent,
                         onTap: () {
                           logoutDialog(context);
                         },

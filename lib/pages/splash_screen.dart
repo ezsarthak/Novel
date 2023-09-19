@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../constants/dimensions.dart';
 import '../components/loading_widget.dart';
 import '../components/novel_text.dart';
 import 'navigatin_screen.dart';
@@ -43,9 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
               builder: (context, snapshot) {
                 if (snapshot.hasData &&
                     snapshot.connectionState == ConnectionState.done) {
-                  return NavigationScreen(
-                    snapshot: snapshot,
-                  );
+                  return Dimensions.initapp
+                      ? NavigationScreen(
+                          snapshot: snapshot,
+                        )
+                      : const ErrorWidget();
                 } else {
                   return Container(
                     height: MediaQuery.of(context).size.height,
@@ -114,7 +117,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                   height: 28,
                                 ),
                                 CustomText(
-                                  textName: 'Powerd by Novel Dashboard',
+                                  textName: 'Powered by Novel Dashboard',
                                   fontWeight: FontWeight.normal,
                                   letterSpacing: 2,
                                   fontSize: 12,
@@ -138,6 +141,35 @@ class _SplashScreenState extends State<SplashScreen> {
             return const LogIn();
           }
         },
+      ),
+    );
+  }
+}
+
+class ErrorWidget extends StatelessWidget {
+  const ErrorWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Padding(
+          padding: Dimensions.pagePadding,
+          child: const Center(
+            child: CustomText(
+              textName:
+                  'Error while opening the app. Make sure you have installed it from play store and updated',
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              textColor: Colors.black,
+              lineHeight: 1.5,
+              letterSpacing: 3,
+              textOverflow: TextOverflow.ellipsis,
+              maxLines: 5,
+            ),
+          ),
+        ),
       ),
     );
   }

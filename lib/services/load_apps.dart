@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:novel/models/apps_model.dart';
+import '../models/apps_model.dart';
 import '../setup/app_config.dart';
 
 class AppApi {

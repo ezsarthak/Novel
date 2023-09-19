@@ -1,13 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:novel/services/notifications.dart';
+import '../constants/dimensions.dart';
+import '../services/notifications.dart';
 import '../constants/novel_theme.dart';
 import '../pages/splash_screen.dart';
 import '../utils/shared_preferences.dart';
 import '../utils/novel_provider.dart';
 import 'package:provider/provider.dart';
+import 'components/novel_text.dart';
 import 'setup/app_details.dart';
+import 'package:store_checker/store_checker.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,14 +36,15 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final MyAppProvider myAppProvider = MyAppProvider();
+
+  void getCurrentAppTheme() async {
+    myAppProvider.darkTheme = await myAppProvider.novelPreference.getTheme();
+  }
+
   @override
   void initState() {
     super.initState();
     getCurrentAppTheme();
-  }
-
-  void getCurrentAppTheme() async {
-    myAppProvider.darkTheme = await myAppProvider.novelPreference.getTheme();
   }
 
   // This widget is the root of your application.
