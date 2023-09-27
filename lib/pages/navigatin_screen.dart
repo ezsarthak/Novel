@@ -107,7 +107,7 @@ class NavigationScreen extends StatelessWidget {
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(32),
                           image: const DecorationImage(
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                             image:
                                 AssetImage("assets/app elements/Widgets.png"),
                           )),
@@ -144,7 +144,7 @@ class NavigationScreen extends StatelessWidget {
                               color: Colors.black,
                               borderRadius: BorderRadius.circular(28),
                               image: const DecorationImage(
-                                fit: BoxFit.fill,
+                                fit: BoxFit.cover,
                                 image: AssetImage(
                                     "assets/app elements/Wallpaper.png"),
                               )),
@@ -169,7 +169,7 @@ class NavigationScreen extends StatelessWidget {
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(28),
                                   image: const DecorationImage(
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.cover,
                                     image: AssetImage(
                                         "assets/app elements/MoreApps.png"),
                                   )),
@@ -193,7 +193,7 @@ class NavigationScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(28),
                                   color: Colors.red,
                                   image: const DecorationImage(
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.cover,
                                     image: AssetImage(
                                         "assets/app elements/Settings.png"),
                                   )),

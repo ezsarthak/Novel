@@ -9,9 +9,13 @@ import '../constants/dimensions.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:archive/archive.dart';
 import 'package:store_checker/store_checker.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class LoadWidget {
   static Future<List<String>> getwidgets(BuildContext context) async {
+    DefaultCacheManager().emptyCache();
+    imageCache.clear();
+    imageCache.clearLiveImages();
     Directory tempDir = await getApplicationCacheDirectory();
     String tempPath = tempDir.path;
     List<String> listaAssetsFiltered = [];

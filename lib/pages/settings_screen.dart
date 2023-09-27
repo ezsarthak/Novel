@@ -234,7 +234,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   DefaultCacheManager().emptyCache();
                                   imageCache.clear();
                                   imageCache.clearLiveImages();
-                                  setState(() {});
+
                                   getSnackBar(context, "Cache Cleared");
                                 },
                               ),
