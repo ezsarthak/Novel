@@ -349,34 +349,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     disclaimerDialog(context);
                                   },
                                 ),
-                                const SizedBox(
-                                  height: 16,
-                                ),
-                                CustomSettingsTile(
-                                  title: "Log Out",
-                                  trailing: CustomButton(
-                                    backgroundColor: Colors.transparent,
-                                    // padding: const EdgeInsets.all(10),
-                                    buttonContent: Icon(
-                                      Iconsax.logout,
-                                      size: 24,
-                                      color: Theme.of(context)
-                                          .primaryColor
-                                          .withOpacity(0.7),
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    final provider = Provider.of<MyAppProvider>(
-                                        context,
-                                        listen: false);
-                                    provider.logOut();
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const SplashScreen()));
-                                  },
-                                )
+                                // const SizedBox(
+                                //   height: 16,
+                                // ),
+                                // CustomSettingsTile(
+                                //   title: "Log Out",
+                                //   trailing: CustomButton(
+                                //     backgroundColor: Colors.transparent,
+                                //     // padding: const EdgeInsets.all(10),
+                                //     buttonContent: Icon(
+                                //       Iconsax.logout,
+                                //       size: 24,
+                                //       color: Theme.of(context)
+                                //           .primaryColor
+                                //           .withOpacity(0.7),
+                                //     ),
+                                //   ),
+                                //   onTap: () {
+                                //     final provider = Provider.of<MyAppProvider>(
+                                //         context,
+                                //         listen: false);
+                                //     provider.logOut();
+                                //     Navigator.push(
+                                //         context,
+                                //         MaterialPageRoute(
+                                //             builder: (context) =>
+                                //                 const SplashScreen()));
+                                //   },
+                                // )
                               ]),
                           // const SizedBox(
                           //   height: 6,

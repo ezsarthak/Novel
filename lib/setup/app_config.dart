@@ -4,6 +4,6 @@ const wallLink =
 const appsLink =
     'https://gitlab.com/SarthakDesigns/moreappsraw/-/raw/main/apps.json'; // Your Apps Raw Link
 
-bool debugMode = false; // Make it true while testing the app and false if releasing the app
+bool debugMode = true; // Make it true while testing the app and false if releasing the app
 
     

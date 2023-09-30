@@ -18,8 +18,8 @@ This project is made with Flutter by Sarthak Patil.
 9. Renaming app And Unique Package Name
    open terminal and run this
 9.1 flutter pub global activate rename
-9.2 flutter pub global run rename --bundleId pack.yourname.appname
-9.3 flutter pub global run rename --appname "appName"
+9.2 flutter pub global run rename setBundleId --targets android --value "com.example.bundleId"
+9.3 flutter pub global run rename setAppName --targets android --value "YourAppName"
 
 
 10 signing the app

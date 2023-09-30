@@ -79,10 +79,10 @@ class NavigationScreen extends StatelessWidget {
                         onTap: () {
                           logoutDialog(context);
                         },
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                           radius: 24,
-                          foregroundImage: NetworkImage(
-                              FirebaseAuth.instance.currentUser!.photoURL!),
+                          foregroundImage: AssetImage(
+                              "assets/app elements/app_logo.jpg"),
                         ),
                       ),
                     ],

@@ -32,92 +32,54 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (contex, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const LoadingWidget();
-          } else if (snapshot.hasData) {
-            return FutureBuilder<List<String>>(
-              future: imgObject.whenComplete(
-                  () => Future.delayed(const Duration(milliseconds: 2000))),
-              builder: (context, snapshot) {
-                if (snapshot.hasData &&
-                    snapshot.connectionState == ConnectionState.done) {
-                  return Dimensions.initapp
-                      ? NavigationScreen(
-                          snapshot: snapshot,
-                        )
-                      : const ErrorWidget();
-                } else {
-                  return Container(
-                    height: MediaQuery.of(context).size.height,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Theme.of(context).primaryColorDark,
-                          Theme.of(context).primaryColorLight,
-                          Theme.of(context).backgroundColor,
-                        ],
+      body:  FutureBuilder<List<String>>(
+        future: imgObject.whenComplete(
+                () => Future.delayed(const Duration(milliseconds: 2000))),
+        builder: (context, snapshot) {
+          if (snapshot.hasData &&
+              snapshot.connectionState == ConnectionState.done) {
+            return Dimensions.initapp
+                ? NavigationScreen(
+              snapshot: snapshot,
+            )
+                : const ErrorWidget();
+          } else {
+            return Container(
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Theme.of(context).primaryColorDark,
+                    Theme.of(context).primaryColorLight,
+                    Theme.of(context).backgroundColor,
+                  ],
+                ),
+              ),
+              child: Scaffold(
+                backgroundColor: Colors.transparent,
+                body: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.35,
                       ),
+                      child: const Center(child: LoadingWidget()),
                     ),
-                    child: Scaffold(
-                      backgroundColor: Colors.transparent,
-                      body: Column(
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 24.0),
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: MediaQuery.of(context).size.height * 0.35,
-                            ),
-                            child: const Center(child: LoadingWidget()),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 24.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Center(
-                                      child: CustomText(
-                                        textName: 'App Starting',
-                                        fontWeight: FontWeight.normal,
-                                        letterSpacing: 2,
-                                        fontSize: 12,
-                                        textColor: Theme.of(context)
-                                            .textTheme
-                                            .labelLarge!
-                                            .color!
-                                            .withOpacity(0.6),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 16,
-                                    ),
-                                    Center(
-                                      child: SpinKitWave(
-                                        size:
-                                            MediaQuery.of(context).size.width *
-                                                0.1,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .labelLarge!
-                                            .color!
-                                            .withOpacity(0.6),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 28,
-                                ),
-                                CustomText(
-                                  textName: 'Powered by Novel Dashboard',
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Center(
+                                child: CustomText(
+                                  textName: 'App Starting',
                                   fontWeight: FontWeight.normal,
                                   letterSpacing: 2,
                                   fontSize: 12,
@@ -127,18 +89,45 @@ class _SplashScreenState extends State<SplashScreen> {
                                       .color!
                                       .withOpacity(0.6),
                                 ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(
+                                width: 16,
+                              ),
+                              Center(
+                                child: SpinKitWave(
+                                  size:
+                                  MediaQuery.of(context).size.width *
+                                      0.1,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge!
+                                      .color!
+                                      .withOpacity(0.6),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 28,
+                          ),
+                          CustomText(
+                            textName: 'Powered by Novel Dashboard',
+                            fontWeight: FontWeight.normal,
+                            letterSpacing: 2,
+                            fontSize: 12,
+                            textColor: Theme.of(context)
+                                .textTheme
+                                .labelLarge!
+                                .color!
+                                .withOpacity(0.6),
                           ),
                         ],
                       ),
                     ),
-                  );
-                }
-              },
+                  ],
+                ),
+              ),
             );
-          } else {
-            return const LogIn();
           }
         },
       ),
