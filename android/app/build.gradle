@@ -79,7 +79,7 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'org.bitbucket.frankmonza:kustomapi:+'
+    implementation 'org.bitbucket.frankmonza:kustompreset:+'
 
 }
 apply plugin: 'com.google.gms.google-services'
