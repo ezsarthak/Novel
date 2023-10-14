@@ -141,7 +141,7 @@ class NavigationScreen extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.35,
                           width: MediaQuery.of(context).size.width * 0.42,
                           decoration: BoxDecoration(
-                              color: Colors.black,
+                              color: Colors.transparent,
                               borderRadius: BorderRadius.circular(28),
                               image: const DecorationImage(
                                 fit: BoxFit.cover,
@@ -166,7 +166,7 @@ class NavigationScreen extends StatelessWidget {
                               height: MediaQuery.of(context).size.height * 0.16,
                               width: MediaQuery.of(context).size.width * 0.35,
                               decoration: BoxDecoration(
-                                  color: Colors.red,
+                                  color: Colors.transparent,
                                   borderRadius: BorderRadius.circular(28),
                                   image: const DecorationImage(
                                     fit: BoxFit.cover,
@@ -191,7 +191,7 @@ class NavigationScreen extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.35,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(28),
-                                  color: Colors.red,
+                                  color: Colors.transparent,
                                   image: const DecorationImage(
                                     fit: BoxFit.cover,
                                     image: AssetImage(

@@ -10,7 +10,6 @@ import '../utils/novel_provider.dart';
 import 'package:provider/provider.dart';
 import 'components/novel_text.dart';
 import 'setup/app_details.dart';
-import 'package:store_checker/store_checker.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

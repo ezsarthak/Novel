@@ -1,7 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:io';
+import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import '../components/novel_button.dart';
 import '../components/novel_text.dart';
 import '../models/widget_info_model.dart';
 import '../utils/extensions.dart';
@@ -152,11 +155,48 @@ class WidgetDetails extends StatelessWidget {
                     textColor: Theme.of(context).textTheme.labelLarge!.color,
                     maxLines: 10000,
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: CustomButton(
+                      onPressed: () async {
+                        await LaunchApp.openApp(
+                          androidPackageName: 'org.kustom.widget',
+                          openStore: false,
+                          appStoreLink:
+                          'https://play.google.com/store/apps/details?id=org.kustom.widget',
+                        );
+                      },
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.16,
+                          vertical: MediaQuery.of(context).size.width * 0.04),
+                      backgroundColor: Theme.of(context).indicatorColor,
+                      // padding: const EdgeInsets.all(10),
+                      buttonContent: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Iconsax.brush_45,
+                            size: 28,
+                            color: Theme.of(context).textTheme.titleLarge!.color,
+                          ),
+                          CustomText(
+                            textName: "Apply",
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            textColor: Theme.of(context).textTheme.titleLarge!.color,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ),
+
       ),
     );
   }
