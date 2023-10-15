@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
 
+
+    <queries>
+        <package android:name="org.kustom.widget" />
+    </queries>
     <!-- Provide required visibility configuration for API level 30 and above -->
 <queries>
     <intent>

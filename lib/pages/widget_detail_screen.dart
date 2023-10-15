@@ -163,9 +163,7 @@ class WidgetDetails extends StatelessWidget {
                       onPressed: () async {
                         await LaunchApp.openApp(
                           androidPackageName: 'org.kustom.widget',
-                          openStore: false,
-                          appStoreLink:
-                          'https://play.google.com/store/apps/details?id=org.kustom.widget',
+                          openStore: true,
                         );
                       },
                       padding: EdgeInsets.symmetric(
