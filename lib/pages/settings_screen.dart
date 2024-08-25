@@ -36,7 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           colors: [
             Theme.of(context).primaryColorDark,
             Theme.of(context).primaryColorLight,
-            Theme.of(context).backgroundColor,
+            Theme.of(context).scaffoldBackgroundColor,
           ],
           // Colors.amber.shade100,
         ),

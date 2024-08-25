@@ -43,7 +43,7 @@ class Styles {
           isDarkTheme ? Colors.amber.shade300 : Colors.blueGrey.shade500,
       secondaryHeaderColor:
           isDarkTheme ? const Color(0xff273D5E) : const Color(0xffD7EAEF),
-      backgroundColor: isDarkTheme ? Colors.black : const Color(0xffD7EAEF),
+      scaffoldBackgroundColor: isDarkTheme ? Colors.black : const Color(0xffD7EAEF),
       brightness: isDarkTheme ? Brightness.light : Brightness.dark,
       cardColor: isDarkTheme ? Colors.grey.shade900 : const Color(0xffD7EAEF),
       navigationBarTheme: NavigationBarThemeData(

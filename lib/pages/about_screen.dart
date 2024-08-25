@@ -20,7 +20,7 @@ class AboutScreen extends StatelessWidget {
           colors: [
             Theme.of(context).primaryColorDark,
             Theme.of(context).primaryColorLight,
-            Theme.of(context).backgroundColor,
+            Theme.of(context).scaffoldBackgroundColor,
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import '../constants/dimensions.dart';
@@ -29,7 +28,7 @@ class NavigationScreen extends StatelessWidget {
             colors: [
               Theme.of(context).primaryColorDark,
               Theme.of(context).primaryColorLight,
-              Theme.of(context).backgroundColor,
+              Theme.of(context).scaffoldBackgroundColor,
             ],
           ),
         ),
@@ -76,9 +75,9 @@ class NavigationScreen extends StatelessWidget {
                       ),
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
-                        onTap: () {
-                          logoutDialog(context);
-                        },
+                        // onTap: () {
+                        //   logoutDialog(context);
+                        // },
                         child: const CircleAvatar(
                           radius: 24,
                           foregroundImage: AssetImage(
@@ -267,13 +266,13 @@ class NavigationScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      final provider =
-                          Provider.of<MyAppProvider>(context, listen: false);
-                      provider.logOut();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SplashScreen()));
+                      // final provider =
+                      //     Provider.of<MyAppProvider>(context, listen: false);
+                      // provider.logOut();
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const SplashScreen()));
                     },
                     child: Container(
                       height: 50,
