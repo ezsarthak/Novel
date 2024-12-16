@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'shared_preferences.dart';
 
 class MyAppProvider with ChangeNotifier {
@@ -57,7 +56,7 @@ class MyAppProvider with ChangeNotifier {
   //   await FirebaseAuth.instance.signInWithCredential(credential);
   //   notifyListeners();
   // }
-  //
+
   // Future logOut() async {
   //   await googleSignIn.disconnect();
   //   FirebaseAuth.instance.signOut();

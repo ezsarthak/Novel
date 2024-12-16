@@ -75,9 +75,9 @@ class NavigationScreen extends StatelessWidget {
                       ),
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
-                        // onTap: () {
-                        //   logoutDialog(context);
-                        // },
+                        onTap: () {
+                          logoutDialog(context);
+                        },
                         child: const CircleAvatar(
                           radius: 24,
                           foregroundImage: AssetImage(
@@ -140,7 +140,7 @@ class NavigationScreen extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.35,
                           width: MediaQuery.of(context).size.width * 0.42,
                           decoration: BoxDecoration(
-                              color: Colors.transparent,
+                              color: Colors.black,
                               borderRadius: BorderRadius.circular(28),
                               image: const DecorationImage(
                                 fit: BoxFit.cover,
@@ -165,7 +165,7 @@ class NavigationScreen extends StatelessWidget {
                               height: MediaQuery.of(context).size.height * 0.16,
                               width: MediaQuery.of(context).size.width * 0.35,
                               decoration: BoxDecoration(
-                                  color: Colors.transparent,
+                                  color: Colors.red,
                                   borderRadius: BorderRadius.circular(28),
                                   image: const DecorationImage(
                                     fit: BoxFit.cover,
@@ -190,7 +190,7 @@ class NavigationScreen extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.35,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(28),
-                                  color: Colors.transparent,
+                                  color: Colors.red,
                                   image: const DecorationImage(
                                     fit: BoxFit.cover,
                                     image: AssetImage(
@@ -265,15 +265,15 @@ class NavigationScreen extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
-                      // final provider =
-                      //     Provider.of<MyAppProvider>(context, listen: false);
-                      // provider.logOut();
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const SplashScreen()));
-                    },
+                    // onTap: () {
+                    //   final provider =
+                    //       Provider.of<MyAppProvider>(context, listen: false);
+                    //   provider.logOut();
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const SplashScreen()));
+                    // },
                     child: Container(
                       height: 50,
                       width: 100,

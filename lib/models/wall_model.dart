@@ -15,7 +15,6 @@ class WallModel {
   });
   String? name;
   String? auther;
-
   String? category;
   String? url;
   String? thumb;
@@ -23,7 +22,7 @@ class WallModel {
   factory WallModel.fromJson(Map<String, dynamic> json) => WallModel(
         name: json["name"],
         auther: json["author"],
-        category: json["collections"],
+        category: json["category"],
         url: json["url"],
         thumb: json["thumbnail"],
       );
@@ -32,6 +31,6 @@ class WallModel {
         "author": auther,
         "url": url,
         "thumbnail": thumb,
-        "collections": category,
+        "category": category,
       };
 }

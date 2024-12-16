@@ -156,15 +156,12 @@ class WidgetDetails extends StatelessWidget {
                     maxLines: 10000,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Center(
                     child: CustomButton(
-                      onPressed: () async {
-                        await LaunchApp.openApp(
-                          androidPackageName: 'org.kustom.widget',
-                          openStore: true,
-                        );
+                      onPressed: () {
+                        applyDialog(context);
                       },
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.16,
@@ -177,13 +174,15 @@ class WidgetDetails extends StatelessWidget {
                           Icon(
                             Iconsax.brush_45,
                             size: 28,
-                            color: Theme.of(context).textTheme.titleLarge!.color,
+                            color:
+                                Theme.of(context).textTheme.titleLarge!.color,
                           ),
                           CustomText(
                             textName: "Apply",
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            textColor: Theme.of(context).textTheme.titleLarge!.color,
+                            textColor:
+                                Theme.of(context).textTheme.titleLarge!.color,
                           )
                         ],
                       ),
@@ -194,8 +193,97 @@ class WidgetDetails extends StatelessWidget {
             ),
           ),
         ),
-
       ),
     );
+  }
+
+  void applyDialog(BuildContext context) {
+    var dialog = AlertDialog(
+      backgroundColor: Theme.of(context).cardColor,
+      title: CustomText(
+        textName: "Steps to Apply",
+        fontSize: 20,
+        textColor: Theme.of(context).textTheme.labelLarge!.color,
+        fontWeight: FontWeight.bold,
+      ),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(25.0),
+        ),
+      ),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomText(
+                fontWeight: FontWeight.w500,
+                maxLines: 100,
+                lineHeight: 1.6,
+                textColor: Theme.of(context).textTheme.labelMedium!.color,
+                textName:
+                    "1.Install KWGT app in android Phone (Requires Paid-in app purchase) \n "
+                    "2.Add blank widget on home screen. Open this app in KWGT app \n "
+                    // "3.Apply KWGT widget on the homescreen\n "
+                    "3. In the phone, select one widget from KWGT app. Click on the apply icon on the top and done \n "
+                    "4. Ok to Continue"),
+            Padding(
+              padding: const EdgeInsets.only(top: 16.0),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Container(
+                        height: 50,
+                        width: 108,
+                        decoration: BoxDecoration(
+                            color:
+                                Theme.of(context).textTheme.titleMedium!.color,
+                            borderRadius: BorderRadius.circular(16)),
+                        child: Center(
+                          child: CustomText(
+                            textName: "Cancel",
+                            textColor:
+                                Theme.of(context).textTheme.titleLarge!.color,
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        await LaunchApp.openApp(
+                          androidPackageName: 'org.kustom.widget',
+                          openStore: false,
+                        );
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 108,
+                        decoration: BoxDecoration(
+                            color:
+                                Theme.of(context).textTheme.titleMedium!.color,
+                            borderRadius: BorderRadius.circular(16)),
+                        child: Center(
+                          child: CustomText(
+                            textName: "OK",
+                            textColor:
+                                Theme.of(context).textTheme.titleLarge!.color,
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    showDialog(context: context, builder: (BuildContext context) => dialog);
   }
 }

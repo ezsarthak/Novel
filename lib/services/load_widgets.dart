@@ -135,7 +135,7 @@ class LoadWidget {
           if (outFile.path.endsWith("thumb.jpg")) {
             all.add(outFile.path);
           }
-          if (outFile.path.endsWith("info.json")) {
+          if (outFile.path.endsWith("widget_info.json")) {
             all.add(outFile.path);
           }
           outFile = await outFile.create(recursive: true);
